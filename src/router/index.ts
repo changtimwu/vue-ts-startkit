@@ -20,6 +20,14 @@ export default new Router({
     name: 'Hello',
     component: resolve => require(['@/components/Hello.vue'], resolve)
   }, {
+    path: '/test1',
+    name: 'test1',
+    component: resolve => require(['@/components/Test1.vue'], resolve)
+  }, {
+    path: '/test3',
+    name: 'test3',
+    component: resolve => require(['@/components/Test3.vue'], resolve)
+  }, {
     path: '/demo',
     name: 'Demo',
     component: resolve => require(['@/components/demo/index'], modules => resolve(modules.default)) // ts 文件返回来的不是VueComponent而是modules

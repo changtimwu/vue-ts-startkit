@@ -1,34 +1,43 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+<template lang='pug'>
+.hello
+  h1 {{ msg }}
+  h2 Essential Links xxx
+
+  ul
+    li
+      router-link( :to="'test1'") test 1
+    li
+      router-link( :to="'test3'") test 3
+    li
+      a(href='https://vuejs.org', target='_blank') Core Docs
+    li
+      a(href='https://forum.vuejs.org', target='_blank') Forum
+    li
+      a(href='https://gitter.im/vuejs/vue', target='_blank') Gitter Chat
+    li
+      a(href='https://twitter.com/vuejs', target='_blank') Twitter
+    br
+    li
+      a(href='http://vuejs-templates.github.io/webpack/', target='_blank') Docs for This Template
+  h2 Ecosystem
+  ul
+    li
+      a(href='http://router.vuejs.org/', target='_blank') vue-router
+    li
+      a(href='http://vuex.vuejs.org/', target='_blank') vuex
+    li
+      a(href='http://vue-loader.vuejs.org/', target='_blank') vue-loader
+    li
+      a(href='https://github.com/vuejs/awesome-vue', target='_blank') awesome-vue
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import {
-  Component
-} from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 
 @Component
 export default class Hello extends Vue {
-  msg: string = 'Welcome to Your Vue.js App'
+  msg: string = 'Welcome to Your Vue.js App la'
 }
 </script>
 
