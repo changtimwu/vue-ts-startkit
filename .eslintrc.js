@@ -24,7 +24,7 @@ module.exports = {
 
     'space-before-function-paren': 0,
     "spaced-comment": [0, "never"],
-    'indent': [2, 2, {
+    'indent': [0, 0, {
       'SwitchCase': 1
     }],
 
