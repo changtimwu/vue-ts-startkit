@@ -1,5 +1,3 @@
-./t
-./dist
 bindata.go
-./server
-
+server
+dist
