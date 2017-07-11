@@ -126,7 +126,7 @@
     }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
     @import "src/styles/mixin.scss";
 
     .reset-container {

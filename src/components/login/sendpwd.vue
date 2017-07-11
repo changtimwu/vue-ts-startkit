@@ -73,7 +73,7 @@
     }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss">
     .sendpwd-container {
         height: 100vh;
         background-color: #2d3a4b;

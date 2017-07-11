@@ -28,8 +28,8 @@ export default new Router({
     name: 'test3',
     component: resolve => require(['@/components/Test3.vue'], resolve)
   }, {
-    path: '/demo',
-    name: 'Demo',
-    component: resolve => require(['@/components/demo/index'], modules => resolve(modules.default)) // ts 文件返回来的不是VueComponent而是modules
+    path: '/login',
+    name: 'login',
+    component: resolve => require(['@/components/login'], resolve)
   }]
 })

@@ -1,49 +1,47 @@
 <template lang='pug'>
-div.login-container
-    el-form.card-box.login-form( autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px") 
-        h3.title 系统登录
-        el-form-item( prop="email")
-            span.svg-container
-                wscn-icon-svg( icon-class="login")
-            el-input( name="email" type="text" v-model="loginForm.email" autoComplete="on" placeholder="邮箱")
-        el-form-item( prop="password")
-            span.svg-container
-                wscn-icon-svg( icon-class="mima")
-            el-input( name="password" type="password" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on" placeholder="密码")
-        el-form-item
-            el-button( type="primary" style="width:100%;" :loading="loading" @click.native.prevent="handleLogin") 登录
-        div.tips admin账号为:admin@wallstreetcn.com 密码随便填
-        div.tips editor账号:editor@wallstreetcn.com 密码随便填
+  div.login-container
+      el-form.card-box.login-form( autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px")
+          h3.title System Login
+          el-form-item( prop="uid")
+              span.svg-container
+                  icon( name="envelope" )
+              el-input( name="uid" type="text" v-model="loginForm.uid" autoComplete="on" placeholder="User ID")
+          el-form-item( prop="password")
+              span.svg-container
+                  icon( name="key")
+              el-input( name="password" type="password" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on" placeholder="password")
+          el-form-item
+              el-button( type="primary" style="width:100%;" :loading="loading" @click.native.prevent="handleLogin") Login
 
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
+    import { mapGetters } from 'vuex'
     export default {
       name: 'login',
       data() {
-        const validateEmail = (rule, value, callback) => {
-          if (false) {
-            callback(new Error('请输入正确的合法邮箱'));
+        const validateUid = (rule, value, callback) => {
+          if (value.length === 0) {
+            callback(new Error('Please input valid user ID'))
           } else {
-            callback();
+            callback()
           }
-        };
+        }
         const validatePass = (rule, value, callback) => {
-          if (value.length < 6) {
-            callback(new Error('密码不能小于6位'));
+          if (value.length < 5) {
+            callback(new Error('password should not be shorter than 6'))
           } else {
-            callback();
+            callback()
           }
-        };
+        }
         return {
           loginForm: {
-            email: 'admin@wallstreetcn.com',
+            uid: 'admin',
             password: ''
           },
           loginRules: {
-            email: [
-                { required: true, trigger: 'blur', validator: validateEmail }
+            uid: [
+                { required: true, trigger: 'blur', validator: validateUid }
             ],
             password: [
                 { required: true, trigger: 'blur', validator: validatePass }
@@ -54,46 +52,50 @@ div.login-container
         }
       },
       computed: {
-        ...mapGetters([
-          'auth_type'
-        ])
+        ...mapGetters([])
       },
       methods: {
         handleLogin() {
           this.$refs.loginForm.validate(valid => {
             if (valid) {
-              this.loading = true;
-              this.$store.dispatch('LoginByEmail', this.loginForm).then(() => {
-                this.loading = false;
-                this.$router.push({ path: '/' });
-                // this.showDialog = true;
-              }).catch(err => {
-                this.$message.error(err);
-                this.loading = false;
-              });
-            } else {
-              console.log('error submit!!');
-              return false;
+                console.log('error submit!!')
+                return false
             }
-          });
-        },
+            this.loading= true
+            this.$store.dispatch('Login', this.loginForm).then(() => {
+              this.loading = false
+              this.$router.push({path: '/'})
+            })
+              /*
+              this.loading = true
+              this.$store.dispatch('LoginByEmail', this.loginForm).then(() => {
+                this.loading = false
+                this.$router.push({ path: '/' })
+                // this.showDialog = true
+              }).catch(err => {
+                this.$message.error(err)
+                this.loading = false
+              })*/
+            } else {
+            }
+          })
+        }
       },
       created() {
-        // window.addEventListener('hashchange', this.afterQRScan);
       },
       destroyed() {
-        // window.removeEventListener('hashchange', this.afterQRScan);
       }
     }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style lang="scss" scoped>
     @import "src/styles/mixin.scss";
-    .tips{
+    .tips {
       font-size: 14px;
       color: #fff;
       margin-bottom: 5px;
     }
+
     .login-container {
         @include relative;
         height: 100vh;
@@ -151,5 +153,4 @@ div.login-container
             color: #fff;
         }
     }
-
 </style>

@@ -1,13 +1,15 @@
 <template lang='pug'>
 .hello
   h1 {{ msg }}
-  h2 Essential Links xxx
+  h2 Essential Links xxxx
 
   ul
     li
       router-link( :to="'test1'") test 1
     li
       router-link( :to="'test3'") test 3
+    li
+      router-link( :to="'login'") Login
     li
       a(href='https://vuejs.org', target='_blank') Core Docs
     li
@@ -37,24 +39,27 @@ import { Component } from 'vue-property-decorator'
 
 @Component
 export default class Hello extends Vue {
-  msg: string = 'Welcome to Your Vue.js App la'
+  msg: string = 'Welcome to Your Vue.js App'
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="postcss" scoped>
-h1,
-h2
-  font-weight: normal
+<style lang="scss" scoped>
+h1, h2 {
+  font-weight: normal;
+}
 
-ul
-  list-style-type: none
-  padding: 0
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-li
-  display: inline-block
-  margin: 0 10px
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
 
-a
-  color: #42b983
+a {
+  color: #42b913;
+}
 </style>
