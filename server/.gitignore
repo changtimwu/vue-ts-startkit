@@ -1,0 +1,5 @@
+./t
+./dist
+bindata.go
+./server
+
