@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import actions from './actions'
-import mutations from './mutations'
-import getters from './getters'
+import counter from './counter'
+import user from './user'
 
 Vue.use(Vuex)
-const debug = process.env.NODE_ENV !== 'production'
 
-export default new Vuex.Store({
-  state: {
-    count: 0
-  },
-  mutations,
-  actions,
-  getters
+const store = new Vuex.Store({
+  modules: {
+    counter,
+    user
+  }
 })
 
+export default store
