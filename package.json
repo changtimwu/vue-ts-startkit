@@ -27,7 +27,7 @@
   "devDependencies": {
     "@types/chai": "^3.5.1",
     "@types/mocha": "^2.2.41",
-    "@types/node": "^7.0.13",
+    "@types/node": "^7.0.33",
     "@types/sinon": "^2.1.2",
     "@types/sinon-chai": "^2.7.27",
     "@types/webpack": "^2.2.15",
